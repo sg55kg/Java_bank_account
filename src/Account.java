@@ -1,46 +1,44 @@
 import java.util.HashMap;
 
+
 public class Account {
-	private HashMap<String, String> loginInfo;
-	private double accountBalance;
+	protected static HashMap<String, String> loginInfo = new HashMap<>();
+	protected static double accountBalance;
 	
-//	Account(HashMap<String,String> login, double balance) {
-//		this.loginInfo = login;
-//		this.accountBalance = balance;
+//	Account(double accountBalance, HashMap<String, String> loginInfo) {
+//		this.loginInfo = loginInfo;
+//		this.accountBalance = accountBalance;
+//		
 //	}
+
+
 	
-//	Account() {
-//		loginInfo = this.loginInfo;
-//		accountBalance = this.accountBalance;
-//		return;
-//	}
+	public static void setAccountName(HashMap<String,String> login) {
+		loginInfo = login;
+	}
 	
-	public void setUserAndPass(String username, String password) {
+	public static void setUserAndPass(String username, String password) {
 		loginInfo.put(username, password);
-		
 	}
 	
 	public void setBalance(double balance) {
 		this.accountBalance = balance;
 	}
 	
-	public String[] getUserAndPass() {
-		String username = "test";
-		String password = "test";
-		String[] userAndPass = {username, password};
-		return userAndPass;
+//	public String[] setAccountName() {
+//		return 
+//	}
+	
+	public static double deposit(double amount) {
+		return accountBalance += amount;
 	}
 	
-	public double deposit(double amount) {
-		return this.accountBalance += amount;
+	public static double withdraw(double amount) {
+		return accountBalance -= amount;
 	}
 	
-	public double withdraw(double amount) {
-		return this.accountBalance -= amount;
-	}
-	
-	public double getAccountBalance() {
-		return this.accountBalance;
+	public static double getAccountBalance() {
+		return accountBalance;
 	}
 	
 }
